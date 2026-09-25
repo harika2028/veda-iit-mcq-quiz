@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LazyTopper · VEDA IIT MCQ Power Book</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="board-bg" aria-hidden="true">
+  <svg class="traces" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+    <g class="trace-lines"></g>
+  </svg>
+</div>
+
+<!-- ============ HOME SCREEN ============ -->
+<main id="screen-home" class="screen active">
+  <header class="hero">
+    <div class="chip-badge" aria-hidden="true">
+      <div class="chip-pins top"></div>
+      <div class="chip-pins bottom"></div>
+      <div class="chip-pins left"></div>
+      <div class="chip-pins right"></div>
+      <div class="chip-core">
+        <span class="chip-core-label">U1</span>
+      </div>
+    </div>
+    <p class="eyebrow">VEDA IIT PRELIMINARY ENTRANCE TEST · LAST-MINUTE MODE</p>
+    <h1>LazyTopper</h1>
+    <p class="hero-sub">No more flipping to the answer key. Tap an option, know instantly — wrong glows <span class="pill pill-wrong">pink</span>, right glows <span class="pill pill-right">blue</span> — and walk away with a real score, not a guess. Built for the night before the exam.</p>
+  </header>
+
+  <section class="topic-grid" id="topic-grid" aria-label="Choose a topic to practice"></section>
+
+  <footer class="home-footer">
+    <p>Unofficial practice material · Your progress is saved on this device</p>
+  </footer>
+</main>
+
+<!-- ============ QUIZ SCREEN ============ -->
+<main id="screen-quiz" class="screen">
+  <div class="quiz-shell">
+    <div class="quiz-topbar">
+      <button class="icon-btn" id="btn-exit" title="Back to topics">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Topics</span>
+      </button>
+      <div class="quiz-title-wrap">
+        <span class="quiz-topic-name" id="quiz-topic-name">Topic</span>
+        <span class="quiz-section-name" id="quiz-section-name">Section</span>
+      </div>
+      <div class="quiz-counter"><span id="q-index">1</span> / <span id="q-total">1</span></div>
+    </div>
+
+    <div class="led-track" id="led-track" aria-hidden="true"></div>
+
+    <div class="question-card" id="question-card">
+      <div class="q-level" id="q-level">LEVEL 1 · BASIC</div>
+      <p class="q-text" id="q-text"></p>
+      <div class="options" id="options"></div>
+    </div>
+
+    <div class="quiz-controls">
+      <button class="btn btn-ghost" id="btn-back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back
+      </button>
+      <div class="answer-hint" id="answer-hint"></div>
+      <button class="btn btn-primary" id="btn-next">
+        Next
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+</main>
+
+<!-- ============ SCORE SCREEN ============ -->
+<main id="screen-score" class="screen">
+  <div class="score-shell">
+    <p class="eyebrow" id="score-topic-name">Topic</p>
+    <h2 class="score-headline" id="score-headline">Test complete</h2>
+
+    <div class="score-gauge-wrap">
+      <svg class="score-gauge" viewBox="0 0 220 220">
+        <circle class="gauge-track" cx="110" cy="110" r="92"/>
+        <circle class="gauge-fill" id="gauge-fill" cx="110" cy="110" r="92"/>
+      </svg>
+      <div class="gauge-center">
+        <span class="gauge-pct" id="gauge-pct">0%</span>
+        <span class="gauge-frac" id="gauge-frac">0 / 0</span>
+      </div>
+    </div>
+
+    <div class="score-breakdown" id="score-breakdown"></div>
+
+    <div class="score-actions">
+      <button class="btn btn-ghost" id="btn-review">Review answers</button>
+      <button class="btn btn-ghost" id="btn-retry">Retry this topic</button>
+      <button class="btn btn-primary" id="btn-home">Choose another topic</button>
+    </div>
+  </div>
+</main>
+
+<!-- ============ REVIEW SCREEN ============ -->
+<main id="screen-review" class="screen">
+  <div class="quiz-shell">
+    <div class="quiz-topbar">
+      <button class="icon-btn" id="btn-review-exit" title="Back to score">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Score</span>
+      </button>
+      <div class="quiz-title-wrap">
+        <span class="quiz-topic-name">Review</span>
+        <span class="quiz-section-name" id="review-topic-name">Topic</span>
+      </div>
+      <div class="quiz-counter">All questions</div>
+    </div>
+    <div class="review-list" id="review-list"></div>
+  </div>
+</main>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
